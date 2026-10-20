@@ -6,7 +6,7 @@
 /*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:40:34 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/19 13:40:40 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/20 09:30:47 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ typedef struct s_stack
 void    init_stack(t_stack *stack);
 void    free_stack(t_stack *stack);
 int     append_value(t_stack *stack, int value);
-void sa(t_stack *s)
-void    sa(t_stack *b)
-void    ss(t_stack *s, t_stack *b)
+void sa(t_stack *s);
+void    sa(t_stack *b);
+void    ss(t_stack *s, t_stack *b);
 
 #endif
 
