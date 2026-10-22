@@ -30,6 +30,7 @@ typedef struct s_stack
 	t_node	*bottom;
 	int		size;
 }	t_stack;
+char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr, int *out);
 void	init_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
