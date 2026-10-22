@@ -36,4 +36,3 @@ void	free_stack(t_stack *stack);
 int		append_value(t_stack *stack, int value);
 
 #endif
-

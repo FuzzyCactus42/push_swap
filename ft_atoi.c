@@ -34,7 +34,7 @@ static int	get_sign(const char nptr)
 	return (1);
 }
 
-int	is_overflow(long int n)
+int	is_overflow(long long int n)
 {
 	if (n > 2147483647 || n < -2147483648)
 		return (-1);
