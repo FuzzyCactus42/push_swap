@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_erorr.c                                      :+:      :+:    :+:   */
+/*   str2int.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhailat <hhailat@learner.42.tech>            +#+  +:+       +#+      */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 10:29:26 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/19 14:40:51 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/24 16:56:13 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_free(char **arr)
 	return (-1);
 }
 
-int	str2int(char **str, int num_arg, int **out)
+int	str2int(char **str, int num_arg, int **out, int start)
 {
 	int		i;
 	int		k;
@@ -78,7 +78,7 @@ int	str2int(char **str, int num_arg, int **out)
 	char	**p;
 	char	**splt;
 
-	i = 1;
+	i = start;
 	k = 0;
 	p = malloc((total_tokens(str, num_arg) + 1) * sizeof(char *));
 	if (!p)

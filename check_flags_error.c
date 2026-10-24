@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_erorr.c                                      :+:      :+:    :+:   */
+/*   check_flags_error.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:47:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/24 16:26:43 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/24 16:34:50 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,4 @@ int	check_flags_error(char **str, int num_args, int *flags, int *bench)
 		i++;
 	}
 	return (1);
-}
+}//atoi will check the characters
