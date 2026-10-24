@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sawp.h                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 07:24:20 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/19 10:24:24 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/24 13:22:39 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_stack
 	t_node	*bottom;
 	int		size;
 }	t_stack;
+
+int     ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr, int *out);
 void	init_stack(t_stack *stack);

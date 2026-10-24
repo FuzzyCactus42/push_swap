@@ -73,6 +73,7 @@ int	str2int(char **str, int num_arg, int **out)
 {
 	int		i;
 	int		k;
+	int		j;
 	int		*p2;
 	char	**p;
 	char	**splt;
@@ -86,13 +87,14 @@ int	str2int(char **str, int num_arg, int **out)
 	{
 		splt = ft_split(str[i++], ' ');
 		if (!splt)
-			return (ft_free(p));
-		while (*splt)
 		{
-			p[k] = *splt;
-			splt++;
-			k++;
+			p[k] = NULL;//if it not NULL the ft_free will destroy the program
+			return (ft_free(p));
 		}
+		j = 0;
+		while (splt[j])
+			p[k++] = splt[j++];
+		free(splt);
 	} // we end up with p -> arr of chars splitted
 	p[k] = NULL;
 	p2 = malloc(k * sizeof(int)); // realocate for atoi
