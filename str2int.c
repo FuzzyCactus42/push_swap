@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 10:29:26 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/24 16:56:13 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/24 17:10:49 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,5 @@ int	str2int(char **str, int num_arg, int **out, int start)
 	}
 	*out = p2;
 	ft_free(p);
-	return (1);
+	return (k);// We want k to count elements
 }

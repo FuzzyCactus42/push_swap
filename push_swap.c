@@ -1,9 +1,11 @@
 #include "push_swap.h"
 #include <stdio.h>
+
 void print_erorr()
 {
-	write(1, "Erorr\n", 6);
+	write(2, "Error\n", 6);
 }
+
 int main(int argc, char *argv[])
 {
 	int	i;
@@ -11,6 +13,8 @@ int main(int argc, char *argv[])
 	int flags;
 	int	bench;
 
+	bench = 0;
+	flags = 0;
 	if (argc <= 1)
 		return(0);
 	if (check_flags_error(argv, argc, &flags, &bench) == -1)
@@ -26,4 +30,5 @@ int main(int argc, char *argv[])
 			return (0);
 		}
 	printf("%i", integrs[1]);
+	free(integrs);
 }

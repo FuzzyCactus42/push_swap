@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 07:24:20 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/24 16:56:28 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/24 17:12:18 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	t_node	*bottom;
 	int		size;
 }	t_stack;
-int	str2int(char **str, int num_arg, int **out, int start);
+int		str2int(char **str, int num_arg, int **out, int start);
 int		check_flags_error(char **str, int num_args, int *flags, int *bench);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_split(char const *s, char c);
