@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:47:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/26 11:39:07 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/26 11:51:16 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,14 @@ static int	check_flags(char *str, int *flags, int *bench)
 	else
 		return (0);
 }
-
-int	check_flags_error(char **str, int num_args, t_flags *flags)
+static void initialize_flags(t_flags *flags)
+{
+	flags->num_flags = 0;
+	flags->num_bench = 0;
+	flags->flag = "--adaptive";
+	flags->bench = false;
+}
+static int	check_flags_error(char **str, int num_args, t_flags *flags)
 {
 	int	i;
 	i = 1;
@@ -78,6 +84,7 @@ int	read_flags(char **str, int num_args, t_flags *flags)
 {
 	int i;
 
+	initialize_flags(flags);
 	i = 1;
 	if (check_flags_error(str, num_args, flags) == -1)
 		return (-1);
@@ -91,6 +98,8 @@ int	read_flags(char **str, int num_args, t_flags *flags)
 			flags->flag = "--complex";
 		else if (!ft_strncmp(str[i], "--simple", 9))
 			flags->flag = "--simple";
+		else if (!ft_strncmp(str[i], "--bench", 8))
+			flags->bench = true;
 		i++;
 	}
 	return (1);

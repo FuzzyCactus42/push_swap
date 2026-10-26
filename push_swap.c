@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 	int *integrs;
 	t_flags flags;
 
+	integrs = NULL;// if str2int fail -> free(uninitalize) = ERORR
 	if (argc <= 1)
 		return(0);
 	if (read_flags(argv, argc, &flags) == -1)

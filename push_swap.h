@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 07:24:20 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 11:37:33 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/26 12:17:01 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_flags
 int		read_flags(char **str, int num_args, t_flags *flags);
 int 	check_dup_erorr(int *arr, int count);
 int		str2int(char **str, int num_arg, int **out, int start);
-int		check_flags_error(char **str, int num_args, t_flags *flags);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr, int *out);
