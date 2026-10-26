@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
+# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -30,6 +31,21 @@ typedef struct s_stack
 	t_node			*bottom;
 	int				size;
 }					t_stack;
+
+typedef struct s_flags
+{
+	int num_flags;
+	int num_bench;
+
+	char	*flag;
+	bool	bench;
+}	t_flags;
+int		read_flags(char **str, int num_args, t_flags *flags);
+int 	check_dup_erorr(int *arr, int count);
+int		str2int(char **str, int num_arg, int **out, int start);
+int     ft_strncmp(const char *s1, const char *s2, size_t n);
+char	**ft_split(char const *s, char c);
+int		ft_atoi(const char *nptr, int *out);
 
 void				init_stack(t_stack *stack);
 void				free_stack(t_stack *stack);
