@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 10:06:04 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 10:32:55 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:28:11 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	append_value(t_stack *stack, int value)
 
 	node = malloc(sizeof(t_node));
 	if (!node)
-		return (0);
+		return (-1);
 	node->value = value;
 	node->next = NULL;
 	node->index = 0;
@@ -53,4 +53,21 @@ void	free_stack(t_stack *stack)
 	stack->top = NULL;
 	stack->bottom = NULL;
 	stack->size = 0;
+}
+int fill_stack(t_stack *stack, int *values, int num_values)
+{
+	int	i;
+
+	i = 0;
+	while (i < num_values)
+	{
+		if (append_value(stack, values[i]) == -1)
+		{
+			free(values);
+			return (-1);
+		}
+		i++;
+	}
+	free (values);
+	return (1);
 }

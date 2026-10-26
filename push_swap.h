@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:40:34 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 12:34:14 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/26 15:24:37 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,18 @@ typedef struct s_stack
 
 typedef struct s_flags
 {
-	int num_flags;
-	int num_bench;
-
+	int		num_flags;
+	int 	num_bench;
 	char	*flag;
 	bool	bench;
 }	t_flags;
-int		read_flags(char **str, int num_args, t_flags *flags);
-int 	check_dup_erorr(int *arr, int count);
-int		str2int(char **str, int num_arg, int **out, int start);
-int     ft_strncmp(const char *s1, const char *s2, size_t n);
-char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *nptr, int *out);
-
+int					read_flags(char **str, int num_args, t_flags *flags);
+int 				check_dup_erorr(int *arr, int count);
+int					str2int(char **str, int num_arg, int **out, int start);
+int 			    ft_strncmp(const char *s1, const char *s2, size_t n);
+char				**ft_split(char const *s, char c);
+int					ft_atoi(const char *nptr, int *out);
+int 				fill_stack(t_stack *stack, int *values, int num_values);
 void				init_stack(t_stack *stack);
 void				free_stack(t_stack *stack);
 int					append_value(t_stack *stack, int value);

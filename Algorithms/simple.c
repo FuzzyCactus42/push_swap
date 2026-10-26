@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:20:27 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 10:09:17 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:39:23 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 #include <stdio.h>
 
 void	simple(t_stack *a, t_stack *b)

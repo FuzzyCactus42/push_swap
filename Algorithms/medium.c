@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 11:35:41 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 12:36:07 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:39:18 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	radix_sort(t_stack *a, t_stack *b)
 {
