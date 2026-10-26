@@ -17,8 +17,8 @@ static int	the_start_of_num(const char *nptr)
 	i = 0;
 	while (nptr[i] != '\0')
 	{
-		if (nptr[i] == '+' || nptr[i] == '-'
-			|| (nptr[i] >= '0' && nptr[i] <= '9'))
+		if (nptr[i] == '+' || nptr[i] == '-' || (nptr[i] >= '0'
+				&& nptr[i] <= '9'))
 			return (i);
 		if (nptr[i] != ' ' && (nptr[i] < 9 || nptr[i] > 13))
 			return (-1);

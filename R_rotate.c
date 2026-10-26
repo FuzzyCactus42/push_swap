@@ -6,16 +6,16 @@
 /*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:26:05 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/22 17:33:33 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/26 12:39:53 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-static void	Rivers_rotate(t_stack *stack)
+static void	rivers_rotate(t_stack *stack)
 {
 	t_node	*temp;
-	t_node	*temp2;	
+	t_node	*temp2;
 
 	if (!stack || stack->size < 2)
 		return ;
@@ -36,7 +36,7 @@ void	rra(t_stack *a)
 	if (!a || a->size < 2)
 		return ;
 	Rivers_rotate(a);
-	write(1,"rra\n",4);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
@@ -44,7 +44,7 @@ void	rrb(t_stack *b)
 	if (!b || b->size < 2)
 		return ;
 	Rivers_rotate(b);
-	write(1,"rrb\n",4);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)
@@ -53,6 +53,5 @@ void	rrr(t_stack *a, t_stack *b)
 		return ;
 	Rivers_rotate(a);
 	Rivers_rotate(b);
-	write(1,"rrr\n",4);
+	write(1, "rrr\n", 4);
 }
-

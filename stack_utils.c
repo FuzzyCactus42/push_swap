@@ -6,10 +6,9 @@
 /*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 10:06:04 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/19 10:06:18 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/26 10:32:55 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -29,6 +28,7 @@ int	append_value(t_stack *stack, int value)
 		return (0);
 	node->value = value;
 	node->next = NULL;
+	node->index = 0;
 	if (stack->size == 0)
 		stack->top = node;
 	else
@@ -54,4 +54,3 @@ void	free_stack(t_stack *stack)
 	stack->bottom = NULL;
 	stack->size = 0;
 }
-
