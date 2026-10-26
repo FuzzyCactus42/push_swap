@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_flags_error.c                                :+:      :+:    :+:   */
+/*   read_flags.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:47:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/24 16:34:50 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/26 11:39:07 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,9 @@ static int	check_flags(char *str, int *flags, int *bench)
 		return (0);
 }
 
-int	check_flags_error(char **str, int num_args, int *flags, int *bench)
+int	check_flags_error(char **str, int num_args, t_flags *flags)
 {
 	int	i;
-
 	i = 1;
 	while (i < num_args)
 	{
@@ -67,11 +66,32 @@ int	check_flags_error(char **str, int num_args, int *flags, int *bench)
 	i = 1;
 	while (i < num_args)
 	{
-		if (check_flags(str[i], flags, bench) == -1)
+		if (check_flags(str[i], &flags->num_flags, &flags->num_bench) == -1)
 			return (-1);
-		if (*flags >= 2 || *bench >= 2)
+		if (flags->num_flags >= 2 || flags->num_bench >= 2)
 			return (-1);
 		i++;
 	}
 	return (1);
 }//atoi will check the characters
+int	read_flags(char **str, int num_args, t_flags *flags)
+{
+	int i;
+
+	i = 1;
+	if (check_flags_error(str, num_args, flags) == -1)
+		return (-1);
+	while (i < num_args)
+	{
+		if (!ft_strncmp(str[i], "--adaptive", 11))
+			flags->flag = "--adaptive";
+		else if (!ft_strncmp(str[i], "--medium", 9))
+			flags->flag = "--medium";
+		else if (!ft_strncmp(str[i], "--complex", 10))
+			flags->flag = "--complex";
+		else if (!ft_strncmp(str[i], "--simple", 9))
+			flags->flag = "--simple";
+		i++;
+	}
+	return (1);
+}
