@@ -6,7 +6,7 @@
 /*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:40:34 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/27 07:36:05 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/27 10:35:06 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void				sort_simple(t_stack *a, t_stack *b);
 void				simple(t_stack *a, t_stack *b);
 void				assign(t_stack *a);
 void				radix_sort(t_stack *a, t_stack *b);
-double  disorder(t_stack *a);
+double				disorder(t_stack *a);
+int					adaptive(double inorder_v);
 
 #endif
