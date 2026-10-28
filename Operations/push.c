@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 06:53:37 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 13:23:37 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 15:27:24 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	push_b(t_stack *a, t_stack *b, t_bench *bench)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:40:47 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 13:18:59 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 14:55:56 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	swap_stack(t_stack *stack)
 {

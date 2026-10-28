@@ -14,7 +14,7 @@ SRCS = push_swap.c \
        stack_utils.c \
        index.c \
        Operations/move.c \
-       push.c \
+       Operations/push.c \
        Operations/Rotate.c \
        Operations/R_rotate.c \
        Algorithms/simple.c \

@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,60 +7,76 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 13:27:02 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 14:06:02 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 16:39:10 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-static void	ranking(t_stack *a)
-{
-	t_node *current;
-	t_node *compare;
 
-	current = a->top;
-	compare = a->top;
-	while (current != NULL)
-	{
-		current->index = 0;
-		while (compare)
-		{
-			if (compare->value < current->value)
-				current->index++;
-			compare = compare->next;
-		}	
-		current = current->next;
-		compare = a->top;
-	}
-}
 static int	calc_chunck_size(t_stack *a)
 {
-	int n;
+	int	n;
 	int	chunk_size;
 
 	n = a->size;
 	chunk_size = 1;
 	while ((long)(chunk_size + 1) * (chunk_size + 1) <= n)
-	    chunk_size++;
+		chunk_size++;
 	return (chunk_size);
 }
+
+static int	get_max_position(t_stack *b)
+{
+	t_node	*current;
+	int		p;
+
+	p = 0;
+	current = b->top;
+	while (current->index != b->size - 1)
+	{
+		current = current->next;
+		p++;
+	}
+	return (p);
+}
+
+static void	push2a(t_stack *b, t_stack *a, t_bench *bench)
+{
+	int	p;
+
+	while (b->size)
+	{
+		p = get_max_position(b);
+		while (b->top->index != b->size - 1)
+		{
+			if (p <= b->size / 2)
+				rotate_b(b, bench);
+			else
+				rrb(b, bench);
+		}
+		push_a(b, a, bench);
+	}
+}
+
 void	chunck_based_algo(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	chunck_size;
-	int limt;
+	int	limit;
 
 	if (!a || !b || !bench)
 		return ;
-	ranking(a);
 	chunck_size = calc_chunck_size(a);
-	limt = chunck_size;
-	while (limt < a->size)
+	limit = chunck_size;
+	while (0 < a->size)
 	{
-		while (b->size < limt && a->top != NULL)
+		while (b->size < limit && a->top != NULL)
 		{
-			if (a->top->index < limt)
+			if (a->top->index < limit)
 				push_b(a, b, bench);
-			else rra(a, bench);
+			else
+				rra(a, bench);
 		}
-		limt += limt;
+		limit += chunck_size;
 	}
+		push2a(b, a, bench);
 }

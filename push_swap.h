@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:40:34 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 13:28:50 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 16:02:14 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_bench
 	int				rrr;
 }					t_bench;
 
+void				chunck_based_algo(t_stack *a, t_stack *b, t_bench *bench);
 int					read_flags(char **str, int num_args, t_flags *flags);
 int					check_dup_erorr(int *arr, int count);
 int					str2int(char **str, int num_arg, int **out, int start);

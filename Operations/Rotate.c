@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 07:18:03 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 13:07:43 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 14:55:47 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	rotate(t_stack *stack)
 {

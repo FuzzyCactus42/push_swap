@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		return (-1);
 	}
 	assign(&a);
-	radix_sort(&a, &b, &counters);
+	chunck_based_algo(&a, &b, &counters);
 	free_stack(&a);
 	free_stack(&b);
 }
