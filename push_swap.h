@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:40:34 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 17:56:14 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 19:25:47 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void				rrb(t_stack *b, t_counter *counter);
 void				rrr(t_stack *a, t_stack *b, t_counter *counter);
 void				simple(t_stack *a, t_stack *b, t_counter *counter);
 void				assign(t_stack *a);
-void				complix(t_stack *a, t_stack *b, t_counter *counter);
+void				complex(t_stack *a, t_stack *b, t_counter *counter);
 double				disorder(t_stack *a);
 int					adaptive(double inorder_v);
 int					ft_print_nbr(double i);
