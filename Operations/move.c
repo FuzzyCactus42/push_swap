@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:40:47 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 14:55:56 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 17:43:35 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,30 @@ static void	swap_stack(t_stack *stack)
 		stack->bottom = first;
 }
 
-void	sa(t_stack *s, t_bench *bench)
+void	sa(t_stack *s, t_counter *counter)
 {
-	if (!s || s->size < 2 || !bench)
+	if (!s || s->size < 2 || !counter)
 		return ;
 	swap_stack(s);
-	bench->sa++;
+	counter->sa++;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b, t_bench *bench)
+void	sb(t_stack *b, t_counter *counter)
 {
-	if (!b || b->size < 2 || !bench)
+	if (!b || b->size < 2 || !counter)
 		return ;
 	swap_stack(b);
-	bench->sb++;
+	counter->sb++;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *s, t_stack *b, t_bench *bench)
+void	ss(t_stack *s, t_stack *b, t_counter *counter)
 {
-	if (!bench || ((!s || s->size < 2) && (!b || b->size < 2)))
+	if (!counter || ((!s || s->size < 2) && (!b || b->size < 2)))
 		return ;
 	swap_stack(s);
 	swap_stack(b);
-	bench->ss++;
+	counter->ss++;
 	write(1, "ss\n", 3);
 }

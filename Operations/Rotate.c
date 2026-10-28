@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 07:18:03 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 14:55:47 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 17:43:51 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,30 @@ static void	rotate(t_stack *stack)
 	}
 }
 
-void	rotate_a(t_stack *a, t_bench *bench)
+void	rotate_a(t_stack *a, t_counter *counter)
 {
-	if (!a || a->size < 2 || !bench)
+	if (!a || a->size < 2 || !counter)
 		return ;
 	rotate(a);
 	write(1, "ra\n", 3);
-	bench->ra++;
+	counter->ra++;
 }
 
-void	rotate_b(t_stack *b, t_bench *bench)
+void	rotate_b(t_stack *b, t_counter *counter)
 {
-	if (!b || b->size < 2 || !bench)
+	if (!b || b->size < 2 || !counter)
 		return ;
 	rotate(b);
 	write(1, "rb\n", 3);
-	bench->rb++;
+	counter->rb++;
 }
 
-void	rr(t_stack *a, t_stack *b, t_bench *bench)
+void	rr(t_stack *a, t_stack *b, t_counter *counter)
 {
-	if (!bench || ((!a || a->size < 2) && (!b || b->size < 2)))
+	if (!counter || ((!a || a->size < 2) && (!b || b->size < 2)))
 		return ;
 	rotate(a);
 	rotate(b);
-	bench->rr++;
+	counter->rr++;
 	write(1, "rr\n", 3);
 }

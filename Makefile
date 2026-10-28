@@ -22,7 +22,8 @@ SRCS = push_swap.c \
        Algorithms/complex.c \
        get_disorder.c \
        bench.c \
-       printf.c
+       printf.c \
+	   main.c
 
 OBJS = $(SRCS:.c=.o)
 

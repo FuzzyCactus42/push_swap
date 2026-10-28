@@ -6,13 +6,13 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:20:27 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 17:02:30 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 17:52:59 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	simple(t_stack *a, t_stack *b, t_bench *bench)
+void	simple(t_stack *a, t_stack *b, t_counter *bench)
 {
 	t_node	*current;
 	t_node	*min;

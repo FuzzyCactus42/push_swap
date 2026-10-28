@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 	t_stack	a;
 	t_stack	b;
 	t_flags flags;
-	t_bench counters = {0};
 
 	int_arr = NULL;// if str2int fail -> free(uninitalize) = ERORR
 	if (argc <= 1)
@@ -39,7 +38,7 @@ int main(int argc, char *argv[])
 		free_stack(&a);
 		return (-1);
 	}
-	push_swap(flags.flag, &a, &b, bench);
+	push_swap(&flags, &a, &b);
 	free_stack(&a);
 	free_stack(&b);
 }
