@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 13:27:02 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 13:55:34 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 14:02:56 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	chunck_based_algo(t_stack *a, t_stack *b)
 		while (!(b->size) != limt)
 		{
 			if (a->top->index < limt)
-				push_b;
-			else rr(a);
+				push_b(a, b);
+			else rra(a);
 		}
 	}
 }
