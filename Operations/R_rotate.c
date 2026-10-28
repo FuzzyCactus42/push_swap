@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   R_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
+/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:26:05 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 14:32:10 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 13:14:38 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	rivers_rotate(t_stack *stack)
 {
@@ -31,27 +31,30 @@ static void	rivers_rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, t_bench *bench)
 {
-	if (!a || a->size < 2)
+	if (!a || a->size < 2 || !bench)
 		return ;
 	rivers_rotate(a);
+	bench->rra++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *b, t_bench *bench)
 {
-	if (!b || b->size < 2)
+	if (!b || b->size < 2 || !bench)
 		return ;
 	rivers_rotate(b);
+	bench->rrb++;
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
-	if (!a || !b || a->size < 2 || b->size < 2)
+	if (!bench || ((!a || a->size < 2) && (!b || b->size < 2)))
 		return ;
 	rivers_rotate(a);
 	rivers_rotate(b);
+	bench->rrr++;
 	write(1, "rrr\n", 4);
 }
