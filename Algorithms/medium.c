@@ -5,38 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 11:35:41 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 16:39:18 by hhailat          ###   ########.fr       */
+/*   Created: 2026/10/28 13:27:02 by hhailat           #+#    #+#             */
+/*   Updated: 2026/10/28 13:55:34 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	radix_sort(t_stack *a, t_stack *b)
+static void	ranking(t_stack *a)
 {
-	int	max_bit;
-	int	bit;
-	int	size;
+	t_node *current;
+	t_node *compare;
 
-	if (!a || !b || a->size == 0)
-		return ;
-	max_bit = 0;
-	while (((a->size - 1) >> max_bit) > 0)
-		max_bit++;
-	bit = 0;
-	while (max_bit > bit)
+	current = a->top;
+	compare = a->top;
+	while (current != NULL)
 	{
-		size = a->size;
-		while (size > 0)
+		current->index = 0;
+		while (compare)
 		{
-			if ((a->top->index >> bit) & 1)
-				rotate_a(a);
-			else
-				push_b(a, b);
-			size--;
+			if (compare->value < current->value)
+				current->index++;
+			compare = compare->next;
+		}	
+		current = current->next;
+		compare = a->top;
+	}
+}
+static int	calc_chunck_size(t_stack *a)
+{
+	int n;
+	int	chunk_size;
+
+	n = a->size;
+	chunk_size = 1;
+	while ((long)(chunk_size + 1) * (chunk_size + 1) <= n)
+	    chunk_size++;
+	return (chunk_size);
+}
+void	chunck_based_algo(t_stack *a, t_stack *b)
+{
+	int	chunck_size;
+	int limt;
+
+	chunck_size = calc_chunck_size(a);
+	limt = chunck_size;
+	while (limt < a->size)
+	{
+		while (!(b->size) != limt)
+		{
+			if (a->top->index < limt)
+				push_b;
+			else rr(a);
 		}
-		while (b->size > 0)
-			push_a(b, a);
-		bit++;
 	}
 }
