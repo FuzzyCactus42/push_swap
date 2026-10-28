@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 09:35:32 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 17:26:01 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 20:01:13 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	bench(double inorder, char *flag)
 {
 	int	in;
-	int	persint;
+	float	persint;
 
 	in = inorder * 100;
 	persint = (int)((inorder * 100 - in) * 100);

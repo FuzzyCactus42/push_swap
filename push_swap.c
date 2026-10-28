@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:05:30 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 17:59:10 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 19:39:21 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	push_swap(t_flags *flags, t_stack *a, t_stack *b)
 	if (!ft_strncmp(flags->flag, "--simple", 9))
 		simple(a, b, &counter);
 	else if (!ft_strncmp(flags->flag, "--complex", 10))
-		complix(a, b, &counter);
+		complex(a, b, &counter);
 	else if (!ft_strncmp(flags->flag, "--medium", 9))
 		medium(a, b, &counter);
-	else adaptive(disorder(a));
+	if (adaptive(disorder(a)) == 1)
 	if (flags->is_bench)
 		bench(disorder(a), flags->flag);
 }
