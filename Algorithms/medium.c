@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 13:27:02 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 16:39:10 by hhailat          ###   ########.fr       */
+/*   Created: 2026/10/28 16:58:36 by hhailat           #+#    #+#             */
+/*   Updated: 2026/10/28 17:11:51 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +57,14 @@ static void	push2a(t_stack *b, t_stack *a, t_bench *bench)
 	}
 }
 
-void	chunck_based_algo(t_stack *a, t_stack *b, t_bench *bench)
+void	medium(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	chunck_size;
 	int	limit;
 
 	if (!a || !b || !bench)
 		return ;
+	assign(a);
 	chunck_size = calc_chunck_size(a);
 	limit = chunck_size;
 	while (0 < a->size)
@@ -78,5 +78,5 @@ void	chunck_based_algo(t_stack *a, t_stack *b, t_bench *bench)
 		}
 		limit += chunck_size;
 	}
-		push2a(b, a, bench);
+	push2a(b, a, bench);
 }

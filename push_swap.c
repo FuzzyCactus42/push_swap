@@ -1,47 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/28 17:05:30 by hhailat           #+#    #+#             */
+/*   Updated: 2026/10/28 17:14:38 by hhailat          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include <stdio.h>
 
-void print_erorr()
+void	push_swap(char *flag, t_stack *a, t_stack *b)
 {
-	write(2, "Error\n", 6);
-}
-
-int main(int argc, char *argv[])
-{
-	int	i;
-	int	int_elements;
-	int *int_arr;
-	t_stack	a;
-	t_stack	b;
-	t_flags flags;
-	t_bench counters = {0};
-
-	int_arr = NULL;// if str2int fail -> free(uninitalize) = ERORR
-	if (argc <= 1)
-		return(0);
-	if (read_flags(argv, argc, &flags) == -1)
-		{
-			print_erorr();
-			return (-1);
-		}
-	i = flags.num_bench + flags.num_flags + 1;
-	int_elements = str2int(argv, argc, &int_arr, i);
-	if (int_elements == -1 || check_dup_erorr(int_arr, int_elements) == -1)
-		{
-			print_erorr();
-			free(int_arr);
-			return (-1);
-		}
-	init_stack(&a);
-	init_stack(&b);
-	if (fill_stack(&a, int_arr, int_elements) == -1)
-	{
-		print_erorr();
-		free_stack(&a);
-		return (-1);
-	}
-	assign(&a);
-	chunck_based_algo(&a, &b, &counters);
-	free_stack(&a);
-	free_stack(&b);
+	
+	if (!ft_strncmp(flag[0], "--simple", 9))
+		simple(a, b, bench);
+	if (!ft_strncmp(flag[0], "--complex", 10))
+		complix(a, b, bench);
+	if (!ft_strncmp(flag[0], "--medium", 9))
+		medium(a, b, bench);
+	if (!ft_strncmp(flag[0], "--bench", 8))
+		
+		
 }
