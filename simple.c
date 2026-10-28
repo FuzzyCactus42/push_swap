@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	simple(t_stack *a, t_stack *b,t_bench *bench)
+void	simple(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_node	*current;
 	t_node	*min;
@@ -31,9 +31,9 @@ void	simple(t_stack *a, t_stack *b,t_bench *bench)
 			current = current->next;
 		}
 		while (a->top != min)
-			rotate_a(a,bench);
-		push_b(a, b,bench);
+			rotate_a(a, bench);
+		push_b(a, b, bench);
 	}
 	while (b->size > 0)
-		push_a(b, a,bench);
+		push_a(b, a, bench);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	radix_sort(t_stack *a, t_stack *b,t_bench *bench)
+void	radix_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	max_bit;
 	int	bit;
@@ -30,13 +30,13 @@ void	radix_sort(t_stack *a, t_stack *b,t_bench *bench)
 		while (size > 0)
 		{
 			if ((a->top->index >> bit) & 1)
-				rotate_a(a,bench);
+				rotate_a(a, bench);
 			else
-				push_b(a, b,bench);
+				push_b(a, b, bench);
 			size--;
 		}
 		while (b->size > 0)
-			push_a(b, a,bench);
+			push_a(b, a, bench);
 		bit++;
 	}
 }

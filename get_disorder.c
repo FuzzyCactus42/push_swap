@@ -45,5 +45,4 @@ int	adaptive(double inorder_v)
 	if (inorder_v >= 0.5)
 		return (3);
 	return (1);
-	
 }

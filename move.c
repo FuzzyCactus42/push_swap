@@ -28,7 +28,7 @@ static void	swap_stack(t_stack *stack)
 		stack->bottom = first;
 }
 
-void	sa(t_stack *s,t_bench *bench)
+void	sa(t_stack *s, t_bench *bench)
 {
 	if (!s || s->size < 2 || !bench)
 		return ;
@@ -37,7 +37,7 @@ void	sa(t_stack *s,t_bench *bench)
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b,t_bench *bench)
+void	sb(t_stack *b, t_bench *bench)
 {
 	if (!b || b->size < 2 || !bench)
 		return ;
@@ -46,7 +46,7 @@ void	sb(t_stack *b,t_bench *bench)
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *s, t_stack *b,t_bench *bench)
+void	ss(t_stack *s, t_stack *b, t_bench *bench)
 {
 	if ((!s || s->size < 2) || (!b || b->size < 2) || !bench)
 		return ;

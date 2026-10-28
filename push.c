@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	push_b(t_stack *a, t_stack *b,t_bench *bench)
+void	push_b(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_node	*temp;
 
@@ -42,7 +42,7 @@ void	push_b(t_stack *a, t_stack *b,t_bench *bench)
 	write(1, "pb\n", 3);
 }
 
-void	push_a(t_stack *b, t_stack *a,t_bench *bench)
+void	push_a(t_stack *b, t_stack *a, t_bench *bench)
 {
 	t_node	*temp;
 

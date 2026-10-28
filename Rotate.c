@@ -36,7 +36,7 @@ static void	rotate(t_stack *stack)
 	}
 }
 
-void	rotate_a(t_stack *a,t_bench *bench)
+void	rotate_a(t_stack *a, t_bench *bench)
 {
 	if (!a || a->size < 2 || !bench)
 		return ;
@@ -54,12 +54,12 @@ void	rotate_b(t_stack *b, t_bench *bench)
 	bench->rb++;
 }
 
-void	rr(t_stack *a, t_stack *b,t_bench *bench)
+void	rr(t_stack *a, t_stack *b, t_bench *bench)
 {
-	if (!a || a->size < 2 || !b || b->size<2 || !bench)
-        return ;
-    rotate(a);
-    rotate(b);
+	if (!a || a->size < 2 || !b || b->size < 2 || !bench)
+		return ;
+	rotate(a);
+	rotate(b);
 	bench->rr++;
 	write(1, "rr\n", 3);
 }

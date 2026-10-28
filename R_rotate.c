@@ -31,7 +31,7 @@ static void	rivers_rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 }
 
-void	rra(t_stack *a,t_bench *bench)
+void	rra(t_stack *a, t_bench *bench)
 {
 	if (!a || a->size < 2 || !bench)
 		return ;
@@ -40,7 +40,7 @@ void	rra(t_stack *a,t_bench *bench)
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b,t_bench *bench)
+void	rrb(t_stack *b, t_bench *bench)
 {
 	if (!b || b->size < 2 || !bench)
 		return ;
@@ -49,7 +49,7 @@ void	rrb(t_stack *b,t_bench *bench)
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b,t_bench *bench)
+void	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (!a || !b || a->size < 2 || b->size < 2 || !bench)
 		return ;
