@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 09:35:32 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 11:37:33 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 17:26:01 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bench(double inorder, t_flags flags)
+void	bench(double inorder, char *flag)
 {
 	int	in;
 	int	persint;
@@ -24,5 +24,5 @@ void	bench(double inorder, t_flags flags)
 	write(1, ".", 1);
 	ft_print_nbr(persint);
 	write(1, "\n", 1);
-	ft_print_str(flags.flag);
+	ft_print_str(flag);
 }

@@ -6,17 +6,17 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 06:53:37 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 15:27:24 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 17:43:42 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push_b(t_stack *a, t_stack *b, t_bench *bench)
+void	push_b(t_stack *a, t_stack *b, t_counter *counter)
 {
 	t_node	*temp;
 
-	if (!a || a->size == 0 || !bench || !b)
+	if (!a || a->size == 0 || !counter || !b)
 		return ;
 	temp = a->top;
 	a->top = temp->next;
@@ -38,15 +38,15 @@ void	push_b(t_stack *a, t_stack *b, t_bench *bench)
 		b->top = temp;
 	}
 	b->size++;
-	bench->pb++;
+	counter->pb++;
 	write(1, "pb\n", 3);
 }
 
-void	push_a(t_stack *b, t_stack *a, t_bench *bench)
+void	push_a(t_stack *b, t_stack *a, t_counter *counter)
 {
 	t_node	*temp;
 
-	if (!b || b->size == 0 || !a || !bench)
+	if (!b || b->size == 0 || !a || !counter)
 		return ;
 	temp = b->top;
 	b->top = temp->next;
@@ -68,6 +68,6 @@ void	push_a(t_stack *b, t_stack *a, t_bench *bench)
 		a->top = temp;
 	}
 	a->size++;
-	bench->pa++;
+	counter->pa++;
 	write(1, "pa\n", 3);
 }

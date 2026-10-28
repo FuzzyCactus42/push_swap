@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   R_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:26:05 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 13:14:38 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 17:43:47 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,30 @@ static void	rivers_rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 }
 
-void	rra(t_stack *a, t_bench *bench)
+void	rra(t_stack *a, t_counter *counter)
 {
-	if (!a || a->size < 2 || !bench)
+	if (!a || a->size < 2 || !counter)
 		return ;
 	rivers_rotate(a);
-	bench->rra++;
+	counter->rra++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b, t_bench *bench)
+void	rrb(t_stack *b, t_counter *counter)
 {
-	if (!b || b->size < 2 || !bench)
+	if (!b || b->size < 2 || !counter)
 		return ;
 	rivers_rotate(b);
-	bench->rrb++;
+	counter->rrb++;
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b, t_bench *bench)
+void	rrr(t_stack *a, t_stack *b, t_counter *counter)
 {
-	if (!bench || ((!a || a->size < 2) && (!b || b->size < 2)))
+	if (!counter || ((!a || a->size < 2) && (!b || b->size < 2)))
 		return ;
 	rivers_rotate(a);
 	rivers_rotate(b);
-	bench->rrr++;
+	counter->rrr++;
 	write(1, "rrr\n", 4);
 }

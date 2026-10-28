@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 16:58:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 17:11:51 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 17:53:10 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_max_position(t_stack *b)
 	return (p);
 }
 
-static void	push2a(t_stack *b, t_stack *a, t_bench *bench)
+static void	push2a(t_stack *b, t_stack *a, t_counter *bench)
 {
 	int	p;
 
@@ -57,7 +57,7 @@ static void	push2a(t_stack *b, t_stack *a, t_bench *bench)
 	}
 }
 
-void	medium(t_stack *a, t_stack *b, t_bench *bench)
+void	medium(t_stack *a, t_stack *b, t_counter *bench)
 {
 	int	chunck_size;
 	int	limit;

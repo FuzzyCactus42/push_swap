@@ -6,13 +6,13 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 11:35:41 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 17:10:22 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 17:53:16 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	complex(t_stack *a, t_stack *b, t_bench *bench)
+void	complex(t_stack *a, t_stack *b, t_counter *bench)
 {
 	int	max_bit;
 	int	bit;
