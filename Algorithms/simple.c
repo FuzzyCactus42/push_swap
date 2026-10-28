@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
+/*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:20:27 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 16:39:23 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 13:28:52 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <stdio.h>
 
-void	simple(t_stack *a, t_stack *b)
+void	simple(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_node	*current;
 	t_node	*min;
 
-	if (!a || !b)
+	if (!a || !b || !bench)
 		return ;
 	while (a->size != 0)
 	{
@@ -31,9 +31,9 @@ void	simple(t_stack *a, t_stack *b)
 			current = current->next;
 		}
 		while (a->top != min)
-			rotate_a(a);
-		push_b(a, b);
+			rotate_a(a, bench);
+		push_b(a, b, bench);
 	}
 	while (b->size > 0)
-		push_a(b, a);
+		push_a(b, a, bench);
 }

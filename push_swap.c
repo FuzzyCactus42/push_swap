@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 	t_stack	a;
 	t_stack	b;
 	t_flags flags;
+	t_bench counters = {0};
 
 	int_arr = NULL;// if str2int fail -> free(uninitalize) = ERORR
 	if (argc <= 1)
@@ -39,7 +40,8 @@ int main(int argc, char *argv[])
 		free_stack(&a);
 		return (-1);
 	}
+	assign(&a);
+	radix_sort(&a, &b, &counters);
 	free_stack(&a);
 	free_stack(&b);
-	radix_sort(&a, &b);
 }

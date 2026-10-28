@@ -13,13 +13,16 @@ SRCS = push_swap.c \
        check_dup_error.c \
        stack_utils.c \
        index.c \
-       move.c \
+       Operations/move.c \
        push.c \
-       Rotate.c \
+       Operations/Rotate.c \
        Operations/R_rotate.c \
        Algorithms/simple.c \
        Algorithms/medium.c \
-       Algorithms/complex.c
+       Algorithms/complex.c \
+       get_disorder.c \
+       bench.c \
+       printf.c
 
 OBJS = $(SRCS:.c=.o)
 

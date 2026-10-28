@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 13:27:02 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 14:02:56 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/28 14:06:02 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,24 @@ static int	calc_chunck_size(t_stack *a)
 	    chunk_size++;
 	return (chunk_size);
 }
-void	chunck_based_algo(t_stack *a, t_stack *b)
+void	chunck_based_algo(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	chunck_size;
 	int limt;
 
+	if (!a || !b || !bench)
+		return ;
+	ranking(a);
 	chunck_size = calc_chunck_size(a);
 	limt = chunck_size;
 	while (limt < a->size)
 	{
-		while (!(b->size) != limt)
+		while (b->size < limt && a->top != NULL)
 		{
 			if (a->top->index < limt)
-				push_b(a, b);
-			else rra(a);
+				push_b(a, b, bench);
+			else rra(a, bench);
 		}
+		limt += limt;
 	}
 }
