@@ -33,7 +33,7 @@ double	disorder(t_stack *a)
 		}
 		current = current->next;
 	}
-	return (double (inorder) / ((a->size * (a->size - 1)) / 2.0));
+	return ((double)inorder / ((a->size * (a->size - 1)) / 2.0));
 }
 
 int	adaptive(double inorder_v)
@@ -44,4 +44,6 @@ int	adaptive(double inorder_v)
 		return (2);
 	if (inorder_v >= 0.5)
 		return (3);
+	return (1);
+	
 }

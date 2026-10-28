@@ -6,7 +6,7 @@
 /*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 07:18:03 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 12:41:05 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 13:07:43 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,30 @@ static void	rotate(t_stack *stack)
 	}
 }
 
-void	rotate_a(t_stack *a)
+void	rotate_a(t_stack *a,t_bench *bench)
 {
-	if (!a || a->size < 2)
+	if (!a || a->size < 2 || !bench)
 		return ;
 	rotate(a);
 	write(1, "ra\n", 3);
+	bench->ra++;
 }
 
-void	rotate_b(t_stack *b)
+void	rotate_b(t_stack *b, t_bench *bench)
 {
-	if (!b || b->size < 2)
+	if (!b || b->size < 2 || !bench)
 		return ;
 	rotate(b);
 	write(1, "rb\n", 3);
+	bench->rb++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b,t_bench *bench)
 {
-	if (!a || a->size < 2 || !b || b->size < 2)
-		return ;
-	rotate_a(a);
-	rotate_b(b);
+	if (!a || a->size < 2 || !b || b->size<2 || !bench)
+        return ;
+    rotate(a);
+    rotate(b);
+	bench->rr++;
 	write(1, "rr\n", 3);
 }

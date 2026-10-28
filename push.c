@@ -6,17 +6,17 @@
 /*   By: sallawne <sallawne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 06:53:37 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/26 09:46:52 by sallawne         ###   ########.fr       */
+/*   Updated: 2026/10/28 13:23:37 by sallawne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_b(t_stack *a, t_stack *b)
+void	push_b(t_stack *a, t_stack *b,t_bench *bench)
 {
 	t_node	*temp;
 
-	if (!a || a->size == 0)
+	if (!a || a->size == 0 || !bench || !b)
 		return ;
 	temp = a->top;
 	a->top = temp->next;
@@ -38,14 +38,15 @@ void	push_b(t_stack *a, t_stack *b)
 		b->top = temp;
 	}
 	b->size++;
+	bench->pb++;
 	write(1, "pb\n", 3);
 }
 
-void	push_a(t_stack *b, t_stack *a)
+void	push_a(t_stack *b, t_stack *a,t_bench *bench)
 {
 	t_node	*temp;
 
-	if (!b || b->size == 0 || !a)
+	if (!b || b->size == 0 || !a || !bench)
 		return ;
 	temp = b->top;
 	b->top = temp->next;
@@ -67,5 +68,6 @@ void	push_a(t_stack *b, t_stack *a)
 		a->top = temp;
 	}
 	a->size++;
+	bench->pa++;
 	write(1, "pa\n", 3);
 }
