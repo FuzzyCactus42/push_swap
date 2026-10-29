@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_print_nbr(double i)
+int	ft_print_nbr(double i, int fd)
 {
 	int		len;
 	long	s;
@@ -22,50 +22,50 @@ int	ft_print_nbr(double i)
 	len = 0;
 	if (s < 0)
 	{
-		if (ft_print_char('-') == -1)
+		if (ft_print_char('-', fd) == -1)
 			return (-1);
 		len++;
 		s = -s;
 	}
 	if (s >= 10)
 	{
-		temp = ft_print_nbr(s / 10);
+		temp = ft_print_nbr(s / 10, fd);
 		if (temp == -1)
 			return (-1);
 		len += temp;
 	}
-	temp = ft_print_char((s % 10) + '0');
+	temp = ft_print_char((s % 10) + '0', fd);
 	if (temp == -1)
 		return (-1);
 	return (len + temp);
 }
 
-int	ft_print_char(int c)
+int	ft_print_char(int c, int fd)
 {
 	int	temp;
 
-	temp = write(1, &c, 1);
+	temp = write(fd, &c, 1);
 	if (temp == -1)
 		return (-1);
 	return (1);
 }
 
-int	ft_print_str(char *s)
+int	ft_print_str(char *s, int fd)
 {
 	int	i;
 
 	if (!s)
 	{
-		if (ft_print_char('(') == -1 || ft_print_char('n') == -1
-			|| ft_print_char('u') == -1 || ft_print_char('l') == -1
-			|| ft_print_char('l') == -1 || ft_print_char(')') == -1)
+		if (ft_print_char('(', fd) == -1 || ft_print_char('n', fd) == -1
+			|| ft_print_char('u', fd) == -1 || ft_print_char('l', fd) == -1
+			|| ft_print_char('l', fd) == -1 || ft_print_char(')', fd) == -1)
 			return (-1);
 		return (6);
 	}
 	i = 0;
 	while (s[i])
 	{
-		if (ft_print_char(s[i]) == -1)
+		if (ft_print_char(s[i], fd) == -1)
 			return (-1);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:47:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 17:53:40 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/29 12:24:28 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void init_flags(t_flags *flags)
 {
 	flags->num_flags = 0;
 	flags->num_bench = 0;
-	flags->flag = "--adaptive";
+	flags->flag = "Adaptive";
 	flags->is_bench = false;
 }
 static int	check_flags_error(char **str, int num_args, t_flags *flags)
@@ -91,13 +91,13 @@ int	read_flags(char **str, int num_args, t_flags *flags)
 	while (i < num_args)
 	{
 		if (!ft_strncmp(str[i], "--adaptive", 11))
-			flags->flag = "--adaptive";
+			flags->flag = "Adaptive";
 		else if (!ft_strncmp(str[i], "--medium", 9))
-			flags->flag = "--medium";
+			flags->flag = "Medium";
 		else if (!ft_strncmp(str[i], "--complex", 10))
-			flags->flag = "--complex";
+			flags->flag = "Complex";
 		else if (!ft_strncmp(str[i], "--simple", 9))
-			flags->flag = "--simple";
+			flags->flag = "Simple";
 		else if (!ft_strncmp(str[i], "--bench", 8))
 			flags->is_bench = true;
 		i++;
