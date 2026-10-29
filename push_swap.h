@@ -83,11 +83,12 @@ void				assign(t_stack *a);
 void				complex(t_stack *a, t_stack *b, t_counter *counter);
 double				disorder(t_stack *a);
 int					adaptive(double inorder_v);
-int					ft_print_nbr(double i);
-int					ft_print_char(int c);
-int					ft_print_str(char *s);
+int					ft_print_nbr(double i, int fd);
+int					ft_print_char(int c, int fd);
+int					ft_print_str(char *s, int fd);
 
-void				bench(double inorder, char *flag);
-void				chunck_based_algo(t_stack *a, t_stack *b, t_counter *counter);
+void				bench(double inorder, char *flag, t_counter *counter);
+void				chunck_based_algo(t_stack *a, t_stack *b,
+						t_counter *counter);
 
 #endif

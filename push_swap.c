@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:05:30 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 22:08:04 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/29 17:43:28 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	push_swap(t_flags *flags, t_stack *a, t_stack *b)
 {
-	t_counter counter = {0};
-	float	i;
+	t_counter	counter;
+	double		i;
 
-	i = (disorder(a));
-	if (!ft_strncmp(flags->flag, "--simple", 9))
+	counter = (t_counter){0};
+	i = disorder(a);
+	if (!ft_strncmp(flags->flag, "Simple", 7))
 		simple(a, b, &counter);
-	else if (!ft_strncmp(flags->flag, "--complex", 10))
+	else if (!ft_strncmp(flags->flag, "Complex", 8))
 		complex(a, b, &counter);
-	else if (!ft_strncmp(flags->flag, "--medium", 9))
+	else if (!ft_strncmp(flags->flag, "Medium", 7))
 		medium(a, b, &counter);
 	else if ((adaptive(i)) == 1)
 		simple(a, b, &counter);
@@ -31,5 +32,5 @@ void	push_swap(t_flags *flags, t_stack *a, t_stack *b)
 	else if ((adaptive(i)) == 3)
 		complex(a, b, &counter);
 	if (flags->is_bench)
-		bench(i, flags->flag);
+		bench(i, flags->flag, &counter);
 }
