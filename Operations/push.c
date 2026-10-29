@@ -11,63 +11,57 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	push_b(t_stack *a, t_stack *b, t_counter *counter)
+static t_node   *remove_top(t_stack *stack)
 {
-	t_node	*temp;
+    t_node  *temp;
 
-	if (!a || a->size == 0 || !counter || !b)
-		return ;
-	temp = a->top;
-	a->top = temp->next;
-	a->size--;
-	if (a->size == 0)
-	{
-		a->top = NULL;
-		a->bottom = NULL;
-	}
-	if (b->size == 0)
-	{
-		temp->next = NULL;
-		b->top = temp;
-		b->bottom = temp;
-	}
-	else
-	{
-		temp->next = b->top;
-		b->top = temp;
-	}
-	b->size++;
-	counter->pb++;
-	write(1, "pb\n", 3);
+    temp = stack->top;
+    stack->top = temp->next;
+    stack->size--;
+    if (stack->size == 0)
+    {
+        stack->top = NULL;
+        stack->bottom = NULL;
+    }
+    return (temp);
 }
 
-void	push_a(t_stack *b, t_stack *a, t_counter *counter)
+static void add_top(t_stack *stack, t_node *temp)
 {
-	t_node	*temp;
-
-	if (!b || b->size == 0 || !a || !counter)
-		return ;
-	temp = b->top;
-	b->top = temp->next;
-	b->size--;
-	if (b->size == 0)
-	{
-		b->top = NULL;
-		b->bottom = NULL;
-	}
-	if (a->size == 0)
-	{
-		temp->next = NULL;
-		a->top = temp;
-		a->bottom = temp;
-	}
-	else
-	{
-		temp->next = a->top;
-		a->top = temp;
-	}
-	a->size++;
-	counter->pa++;
-	write(1, "pa\n", 3);
+    if (stack->size == 0)
+    {
+        temp->next = NULL;
+        stack->top = temp;
+        stack->bottom = temp;
+    }
+    else
+    {
+        temp->next = stack->top;
+        stack->top = temp;
+    }
+    stack->size++;
 }
+void    push_b(t_stack *a, t_stack *b, t_bench *bench)
+{
+    t_node  *temp;
+
+    if (!a || a->size == 0 || !bench || !b)
+        return ;
+    temp = remove_top(a);
+    add_top(b, temp);
+    bench->pb++;
+    write(1, "pb\n", 3);
+}
+
+void    push_a(t_stack *b, t_stack *a, t_bench *bench)
+{
+    t_node  *temp;
+
+    if (!b || b->size == 0 || !a || !bench)
+        return ;
+    temp = remove_top(b);
+    add_top(a, temp);
+    bench->pa++;
+    write(1, "pa\n", 3);
+}
+
