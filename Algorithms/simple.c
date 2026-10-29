@@ -12,27 +12,51 @@
 
 #include "../push_swap.h"
 
-void	simple(t_stack *a, t_stack *b, t_counter *bench)
+static t_node   *find_min(t_stack *a, int *min_pos)
 {
-	t_node	*current;
-	t_node	*min;
+    t_node  *current;
+    t_node  *min;
+    int     i;
 
-	if (!a || !b || !bench)
-		return ;
-	while (a->size != 0)
-	{
-		current = a->top;
-		min = current;
-		while (current)
-		{
-			if (min->value > current->value)
-				min = current;
-			current = current->next;
-		}
-		while (a->top != min)
-			rotate_a(a, bench);
-		push_b(a, b, bench);
-	}
-	while (b->size > 0)
-		push_a(b, a, bench);
+    current = a->top;
+    min = current;
+    *min_pos = 0;
+    i = 0;
+    while (current)
+    {
+        if (current->value < min->value)
+        {
+            min = current;
+            *min_pos = i;
+        }
+        current = current->next;
+        i++;
+    }
+    return (min);
+}
+
+void    simple(t_stack *a, t_stack *b, t_bench *bench)
+{
+    t_node  *min;
+    int     min_pos;
+
+    if (!a || !b || !bench)
+        return ;
+    while (a->size > 0)
+    {
+        min = find_min(a, &min_pos);
+        if (min_pos <= a->size / 2)
+        {
+            while (a->top != min)
+                rotate_a(a, bench);
+        }
+        else
+        {
+            while (a->top != min)
+                rra(a, bench);
+        }
+        push_b(a, b, bench);
+    }
+    while (b->size > 0)
+        push_a(b, a, bench);
 }
