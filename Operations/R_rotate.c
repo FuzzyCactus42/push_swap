@@ -31,30 +31,30 @@ static void	rivers_rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 }
 
-void	rra(t_stack *a, t_counter *counter)
+void	rra(t_stack *a)
 {
-	if (!a || a->size < 2 || !counter)
+	if (!a || a->size < 2)
 		return ;
 	rivers_rotate(a);
-	counter->rra++;
+	g_operations[OP_RRA]++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b, t_counter *counter)
+void	rrb(t_stack *b)
 {
-	if (!b || b->size < 2 || !counter)
+	if (!b || b->size < 2)
 		return ;
 	rivers_rotate(b);
-	counter->rrb++;
+	g_operations[OP_RRB]++;
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b, t_counter *counter)
+void	rrr(t_stack *a, t_stack *b)
 {
-	if (!counter || ((!a || a->size < 2) && (!b || b->size < 2)))
+	if (((!a || a->size < 2) && (!b || b->size < 2)))
 		return ;
 	rivers_rotate(a);
 	rivers_rotate(b);
-	counter->rrr++;
+	g_operations[OP_RRR]++;
 	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 16:58:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/28 17:53:10 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/01 17:34:45 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_max_position(t_stack *b)
 	return (p);
 }
 
-static void	push2a(t_stack *b, t_stack *a, t_counter *bench)
+static void	push2a(t_stack *b, t_stack *a)
 {
 	int	p;
 
@@ -49,22 +49,22 @@ static void	push2a(t_stack *b, t_stack *a, t_counter *bench)
 		while (b->top->index != b->size - 1)
 		{
 			if (p <= b->size / 2)
-				rotate_b(b, bench);
+				rotate_b(b);
 			else
-				rrb(b, bench);
+				rrb(b);
 		}
-		push_a(b, a, bench);
+		push_a(b, a);
 	}
 }
 
-void	medium(t_stack *a, t_stack *b, t_counter *bench)
+void	medium(t_stack *a, t_stack *b)
 {
 	int	chunck_size;
 	int	limit;
 
-	if (!a || !b || !bench)
+	if (!a || !b)
 		return ;
-	assign(a);
+	rank(a);
 	chunck_size = calc_chunck_size(a);
 	limit = chunck_size;
 	while (0 < a->size)
@@ -72,11 +72,11 @@ void	medium(t_stack *a, t_stack *b, t_counter *bench)
 		while (b->size < limit && a->top != NULL)
 		{
 			if (a->top->index < limit)
-				push_b(a, b, bench);
+				push_b(a, b);
 			else
-				rra(a, bench);
+				rra(a);
 		}
 		limit += chunck_size;
 	}
-	push2a(b, a, bench);
+	push2a(b, a);
 }

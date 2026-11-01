@@ -6,33 +6,71 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:20:27 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 17:52:59 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/01 17:23:42 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	simple(t_stack *a, t_stack *b, t_counter *bench)
+static int is_sorted(t_stack *a)
 {
-	t_node	*current;
-	t_node	*min;
+    t_node  *current;
 
-	if (!a || !b || !bench)
-		return ;
-	while (a->size != 0)
-	{
-		current = a->top;
-		min = current;
-		while (current)
-		{
-			if (min->value > current->value)
-				min = current;
-			current = current->next;
-		}
-		while (a->top != min)
-			rotate_a(a, bench);
-		push_b(a, b, bench);
-	}
-	while (b->size > 0)
-		push_a(b, a, bench);
+    if (!a || a->size < 2)
+        return (1);
+    current = a->top;
+    while (current->next)
+    {
+        if (current->value > current->next->value)
+            return (0);
+        current = current->next;
+    }
+    return (1);
+}
+static t_node   *find_min(t_stack *a, int *min_pos)
+{
+    t_node  *current;
+    t_node  *min;
+    int     i;
+
+    current = a->top;
+    min = current;
+    *min_pos = 0;
+    i = 0;
+    while (current)
+    {
+        if (current->value < min->value)
+        {
+            min = current;
+            *min_pos = i;
+        }
+        current = current->next;
+        i++;
+    }
+    return (min);
+}
+
+void    simple(t_stack *a, t_stack *b)
+{
+    t_node  *min;
+    int     min_pos;
+
+    if (!a || !b || is_sorted(a))
+        return ;
+    while (a->size > 0)
+    {
+        min = find_min(a, &min_pos);
+        if (min_pos <= a->size / 2)
+        {
+            while (a->top != min)
+                rotate_a(a);
+        }
+        else
+        {
+            while (a->top != min)
+                rra(a);
+        }
+        push_b(a, b);
+    }
+    while (b->size > 0)
+        push_a(b, a);
 }

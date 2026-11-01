@@ -12,7 +12,7 @@ SRCS = push_swap.c \
        ft_strncmp.c \
        check_dup_error.c \
        stack_utils.c \
-       index.c \
+       ranking.c \
        Operations/move.c \
        Operations/push.c \
        Operations/Rotate.c \

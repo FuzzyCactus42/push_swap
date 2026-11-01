@@ -12,11 +12,11 @@
 
 #include "../push_swap.h"
 
-void	push_b(t_stack *a, t_stack *b, t_counter *counter)
+void	push_b(t_stack *a, t_stack *b)
 {
 	t_node	*temp;
 
-	if (!a || a->size == 0 || !counter || !b)
+	if (!a || a->size == 0 || !b)
 		return ;
 	temp = a->top;
 	a->top = temp->next;
@@ -38,15 +38,15 @@ void	push_b(t_stack *a, t_stack *b, t_counter *counter)
 		b->top = temp;
 	}
 	b->size++;
-	counter->pb++;
+	g_operations[OP_PB]++;
 	write(1, "pb\n", 3);
 }
 
-void	push_a(t_stack *b, t_stack *a, t_counter *counter)
+void	push_a(t_stack *b, t_stack *a)
 {
 	t_node	*temp;
 
-	if (!b || b->size == 0 || !a || !counter)
+	if (!b || b->size == 0 || !a)
 		return ;
 	temp = b->top;
 	b->top = temp->next;
@@ -68,6 +68,6 @@ void	push_a(t_stack *b, t_stack *a, t_counter *counter)
 		a->top = temp;
 	}
 	a->size++;
-	counter->pa++;
+	g_operations[OP_PA]++;
 	write(1, "pa\n", 3);
 }

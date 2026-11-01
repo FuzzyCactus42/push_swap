@@ -6,46 +6,47 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 09:35:32 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/29 17:23:36 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/10/29 22:22:04 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	sum(t_counter *counter)
+static int	sum(void)
 {
 	int	result;
 
-	result = counter->pa + counter->pb + counter->ra
-		+ counter->rb + counter->rr + counter->rra + counter->rrb
-		+ counter->rrr + counter->sa + counter->sb + counter->ss;
+	result = g_operations[OP_PA] + g_operations[OP_PB] + g_operations[OP_RA]
+		+ g_operations[OP_RB] + g_operations[OP_RR] + g_operations[OP_RRA]
+		+ g_operations[OP_RRB] + g_operations[OP_RRR] + g_operations[OP_SA]
+		+ g_operations[OP_SB] + g_operations[OP_SS];
 	return (result);
 }
 
-void	print_movement(t_counter *counter)
+void	print_movement(void)
 {
 	ft_print_str("[bench] sa: ", 2);
-	ft_print_nbr(counter->sa, 2);
+	ft_print_nbr(g_operations[OP_SA], 2);
 	ft_print_str(" sb: ", 2);
-	ft_print_nbr(counter->sb, 2);
+	ft_print_nbr(g_operations[OP_SB], 2);
 	ft_print_str(" ss: ", 2);
-	ft_print_nbr(counter->ss, 2);
+	ft_print_nbr(g_operations[OP_SS], 2);
 	ft_print_str(" pa: ", 2);
-	ft_print_nbr(counter->pa, 2);
+	ft_print_nbr(g_operations[OP_PA], 2);
 	ft_print_str(" pb: ", 2);
-	ft_print_nbr(counter->pb, 2);
+	ft_print_nbr(g_operations[OP_PB], 2);
 	ft_print_str("\n[bench] ra: ", 2);
-	ft_print_nbr(counter->ra, 2);
+	ft_print_nbr(g_operations[OP_RA], 2);
 	ft_print_str(" rb: ", 2);
-	ft_print_nbr(counter->rb, 2);
+	ft_print_nbr(g_operations[OP_RB], 2);
 	ft_print_str(" rr: ", 2);
-	ft_print_nbr(counter->rr, 2);
+	ft_print_nbr(g_operations[OP_RR], 2);
 	ft_print_str(" rra: ", 2);
-	ft_print_nbr(counter->rra, 2);
+	ft_print_nbr(g_operations[OP_RRA], 2);
 	ft_print_str(" rrb: ", 2);
-	ft_print_nbr(counter->rrb, 2);
+	ft_print_nbr(g_operations[OP_RRB], 2);
 	ft_print_str(" rrr: ", 2);
-	ft_print_nbr(counter->rrr, 2);
+	ft_print_nbr(g_operations[OP_RRR], 2);
 	write(2, "\n", 1);
 }
 
@@ -61,7 +62,7 @@ static void	print_complexity(double inorder, char *flag)
 		ft_print_str(" / O(n log n)\n", 2);
 }
 
-void	bench(double inorder, char *flag, t_counter *counter)
+void	bench(double inorder, char *flag)
 {
 	int	in;
 	int	persint;
@@ -79,7 +80,7 @@ void	bench(double inorder, char *flag, t_counter *counter)
 	ft_print_str(flag, 2);
 	print_complexity(inorder, flag);
 	ft_print_str("[bench] total_ops: ", 2);
-	ft_print_nbr(sum(counter), 2);
+	ft_print_nbr(sum(), 2);
 	write(2, "\n", 1);
-	print_movement(counter);
+	print_movement();
 }

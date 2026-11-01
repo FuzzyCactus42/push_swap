@@ -6,21 +6,21 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 11:35:41 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 19:25:55 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/01 17:34:39 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	complex(t_stack *a, t_stack *b, t_counter *bench)
+void	complex(t_stack *a, t_stack *b)
 {
 	int	max_bit;
 	int	bit;
 	int	size;
 
-	if (!a || !b || a->size == 0 || !bench)
+	if (!a || !b || a->size == 0)
 		return ;
-	assign(a);
+	rank(a);
 	max_bit = 0;
 	while (((a->size - 1) >> max_bit) > 0)
 		max_bit++;
@@ -31,13 +31,13 @@ void	complex(t_stack *a, t_stack *b, t_counter *bench)
 		while (size > 0)
 		{
 			if ((a->top->index >> bit) & 1)
-				rotate_a(a, bench);
+				rotate_a(a);
 			else
-				push_b(a, b, bench);
+				push_b(a, b);
 			size--;
 		}
 		while (b->size > 0)
-			push_a(b, a, bench);
+			push_a(b, a);
 		bit++;
 	}
 }
