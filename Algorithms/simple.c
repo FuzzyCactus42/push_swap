@@ -11,7 +11,21 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+static int is_sorted(t_stack *a)
+{
+    t_node  *current;
 
+    if (!a || a->size < 2)
+        return (1);
+    current = a->top;
+    while (current->next)
+    {
+        if (current->value > current->next->value)
+            return (0);
+        current = current->next;
+    }
+    return (1);
+}
 static t_node   *find_min(t_stack *a, int *min_pos)
 {
     t_node  *current;
@@ -40,7 +54,7 @@ void    simple(t_stack *a, t_stack *b, t_bench *bench)
     t_node  *min;
     int     min_pos;
 
-    if (!a || !b || !bench)
+    if (!a || !b || !bench || is_sorted(a))
         return ;
     while (a->size > 0)
     {
