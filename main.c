@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 13:51:33 by hhailat           #+#    #+#             */
-/*   Updated: 2026/11/02 14:01:49 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/02 16:47:50 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static int	prepare_stack(t_stack *a, int argc, char **argv, t_flags *flags)
 		free(int_arr);
 		return (-1);
 	}
+	if (int_elements <= 5)
+		flags->flag = "Simple";
 	return (fill_stack(a, int_arr, int_elements));
 }
 

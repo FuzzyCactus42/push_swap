@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 10:30:54 by hhailat           #+#    #+#             */
-/*   Updated: 2026/11/02 13:41:35 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/02 16:46:20 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	fill_arr(char **r1, int *r2)
 ** Count space-separated tokens in all arguments after the program name.
 ** Ignore repeated spaces and skip to the end of each counted token.
 */
-static int	total_tokens(char **str, int num_arg)
+static int	total_tokens(char **str, int argc)
 {
 	int	i;
 	int	j;
@@ -43,7 +43,7 @@ static int	total_tokens(char **str, int num_arg)
 
 	i = 1;
 	count = 0;
-	while (i < num_arg)
+	while (i < argc)
 	{
 		j = 0;
 		while (str[i][j])
@@ -80,14 +80,14 @@ int	ft_free(char **arr)
 ** Collect tokens from arguments starting at start in a NULL-terminated array.
 ** Terminate partial token lists before cleanup if splitting fails.
 */
-static int	collect_tokens(char **str, int num_arg, char **p, int start)
+static int	collect_tokens(char **str, int argc, char **p, int start)
 {
 	int		k;
 	int		j;
 	char	**splt;
 
 	k = 0;
-	while (start < num_arg)
+	while (start < argc)
 	{
 		splt = ft_split(str[start++], ' ');
 		if (!splt)
@@ -109,16 +109,16 @@ static int	collect_tokens(char **str, int num_arg, char **p, int start)
 ** On success, store the array in *out and return its length.
 ** Return -1 on failure.
 */
-int	str2int(char **str, int num_arg, int **out, int start)
+int	str2int(char **str, int argc, int **out, int start)
 {
 	int		k;
 	int		*p2;
 	char	**p;
 
-	p = malloc((total_tokens(str, num_arg) + 1) * sizeof(char *));
+	p = malloc((total_tokens(str, argc) + 1) * sizeof(char *));
 	if (!p)
 		return (-1);
-	k = collect_tokens(str, num_arg, p, start);
+	k = collect_tokens(str, argc, p, start);
 	if (k == -1)
 		return (-1);
 	p2 = malloc(k * sizeof(int));
