@@ -6,30 +6,30 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 11:38:59 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/26 14:11:16 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/02 16:44:23 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_dup_erorr(int *arr, int count)//dup = dupplecate
+int	check_dup_erorr(int *arr, int count)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    if (!arr)
-        return (-1);
-    while (i < count)
-    {
-        j = i + 1;
-        while (j < count)
-        {
-            if (arr[j] == arr[i])
-                return (-1);
-            j++;
-        }
-        i++;
-    }
-    return (1);
+	i = 0;
+	if (!arr)
+		return (-1);
+	while (i < count)
+	{
+		j = i + 1;
+		while (j < count)
+		{
+			if (arr[j] == arr[i])
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

@@ -11,57 +11,47 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-static t_node   *remove_top(t_stack *stack)
-{
-    t_node  *temp;
 
-    temp = stack->top;
-    stack->top = temp->next;
-    stack->size--;
-    if (stack->size == 0)
-    {
-        stack->top = NULL;
-        stack->bottom = NULL;
-    }
-    return (temp);
+static void	push_node(t_stack *from, t_stack *to)
+{
+	t_node	*temp;
+
+	temp = from->top;
+	from->top = temp->next;
+	from->size--;
+	if (from->size == 0)
+	{
+		from->top = NULL;
+		from->bottom = NULL;
+	}
+	if (to->size == 0)
+	{
+		temp->next = NULL;
+		to->top = temp;
+		to->bottom = temp;
+	}
+	else
+	{
+		temp->next = to->top;
+		to->top = temp;
+	}
+	to->size++;
 }
 
-static void add_top(t_stack *stack, t_node *temp)
+void	push_b(t_stack *a, t_stack *b, int *operations)
 {
-    if (stack->size == 0)
-    {
-        temp->next = NULL;
-        stack->top = temp;
-        stack->bottom = temp;
-    }
-    else
-    {
-        temp->next = stack->top;
-        stack->top = temp;
-    }
-    stack->size++;
-}
-void    push_b(t_stack *a, t_stack *b, t_bench *bench)
-{
-    t_node  *temp;
-
-    if (!a || a->size == 0 || !bench || !b)
-        return ;
-    temp = remove_top(a);
-    add_top(b, temp);
-    bench->pb++;
-    write(1, "pb\n", 3);
+	if (!a || a->size == 0 || !b)
+		return ;
+	push_node(a, b);
+	operations[OP_PB]++;
+	write(1, "pb\n", 3);
 }
 
-void    push_a(t_stack *b, t_stack *a, t_bench *bench)
+void	push_a(t_stack *b, t_stack *a, int *operations)
 {
-    t_node  *temp;
-
-    if (!b || b->size == 0 || !a || !bench)
-        return ;
-    temp = remove_top(b);
-    add_top(a, temp);
-    bench->pa++;
-    write(1, "pa\n", 3);
+	if (!b || b->size == 0 || !a)
+		return ;
+	push_node(b, a);
+	operations[OP_PA]++;
+	write(1, "pa\n", 3);
 }
-

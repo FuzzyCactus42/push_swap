@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 10:06:04 by sallawne          #+#    #+#             */
-/*   Updated: 2026/10/28 17:00:33 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/02 14:02:14 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	free_stack(t_stack *stack)
 	stack->bottom = NULL;
 	stack->size = 0;
 }
-int fill_stack(t_stack *stack, int *values, int num_values)
+
+int	fill_stack(t_stack *stack, int *values, int num_values)
 {
 	int	i;
 
@@ -68,6 +69,6 @@ int fill_stack(t_stack *stack, int *values, int num_values)
 		}
 		i++;
 	}
-	free (values);
+	free(values);
 	return (1);
 }
