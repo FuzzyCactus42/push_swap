@@ -12,57 +12,57 @@
 
 #include "push_swap.h"
 
-static int	sum(void)
+static int	sum(int *operations)
 {
 	int	result;
 
-	result = g_operations[OP_PA] + g_operations[OP_PB] + g_operations[OP_RA]
-		+ g_operations[OP_RB] + g_operations[OP_RR] + g_operations[OP_RRA]
-		+ g_operations[OP_RRB] + g_operations[OP_RRR] + g_operations[OP_SA]
-		+ g_operations[OP_SB] + g_operations[OP_SS];
+	result = operations[OP_PA] + operations[OP_PB] + operations[OP_RA]
+		+ operations[OP_RB] + operations[OP_RR] + operations[OP_RRA]
+		+ operations[OP_RRB] + operations[OP_RRR] + operations[OP_SA]
+		+ operations[OP_SB] + operations[OP_SS];
 	return (result);
 }
 
-void	print_movement(void)
+void	print_movement(int *operations)
 {
 	ft_print_str("[bench] sa: ", 2);
-	ft_print_nbr(g_operations[OP_SA], 2);
+	ft_print_nbr(operations[OP_SA], 2);
 	ft_print_str(" sb: ", 2);
-	ft_print_nbr(g_operations[OP_SB], 2);
+	ft_print_nbr(operations[OP_SB], 2);
 	ft_print_str(" ss: ", 2);
-	ft_print_nbr(g_operations[OP_SS], 2);
+	ft_print_nbr(operations[OP_SS], 2);
 	ft_print_str(" pa: ", 2);
-	ft_print_nbr(g_operations[OP_PA], 2);
+	ft_print_nbr(operations[OP_PA], 2);
 	ft_print_str(" pb: ", 2);
-	ft_print_nbr(g_operations[OP_PB], 2);
+	ft_print_nbr(operations[OP_PB], 2);
 	ft_print_str("\n[bench] ra: ", 2);
-	ft_print_nbr(g_operations[OP_RA], 2);
+	ft_print_nbr(operations[OP_RA], 2);
 	ft_print_str(" rb: ", 2);
-	ft_print_nbr(g_operations[OP_RB], 2);
+	ft_print_nbr(operations[OP_RB], 2);
 	ft_print_str(" rr: ", 2);
-	ft_print_nbr(g_operations[OP_RR], 2);
+	ft_print_nbr(operations[OP_RR], 2);
 	ft_print_str(" rra: ", 2);
-	ft_print_nbr(g_operations[OP_RRA], 2);
+	ft_print_nbr(operations[OP_RRA], 2);
 	ft_print_str(" rrb: ", 2);
-	ft_print_nbr(g_operations[OP_RRB], 2);
+	ft_print_nbr(operations[OP_RRB], 2);
 	ft_print_str(" rrr: ", 2);
-	ft_print_nbr(g_operations[OP_RRR], 2);
+	ft_print_nbr(operations[OP_RRR], 2);
 	write(2, "\n", 1);
 }
 
 static void	print_complexity(double inorder, char *flag)
 {
-	if (!ft_strncmp(flag, "Simple", 7)
-		|| (!ft_strncmp(flag, "Adaptive", 9) && adaptive(inorder) == 1))
+	if (!ft_strncmp(flag, "Simple", 7) || (!ft_strncmp(flag, "Adaptive", 9)
+			&& adaptive(inorder) == 1))
 		ft_print_str(" / O(n^2)\n", 2);
-	else if (!ft_strncmp(flag, "Medium", 7)
-		|| (!ft_strncmp(flag, "Adaptive", 9) && adaptive(inorder) == 2))
+	else if (!ft_strncmp(flag, "Medium", 7) || (!ft_strncmp(flag, "Adaptive", 9)
+			&& adaptive(inorder) == 2))
 		ft_print_str(" / O(n*sqrt(n))\n", 2);
 	else
 		ft_print_str(" / O(n log n)\n", 2);
 }
 
-void	bench(double inorder, char *flag)
+void	bench(double inorder, char *flag, int *operations)
 {
 	int	in;
 	int	persint;
@@ -80,7 +80,7 @@ void	bench(double inorder, char *flag)
 	ft_print_str(flag, 2);
 	print_complexity(inorder, flag);
 	ft_print_str("[bench] total_ops: ", 2);
-	ft_print_nbr(sum(), 2);
+	ft_print_nbr(sum(operations), 2);
 	write(2, "\n", 1);
-	print_movement();
+	print_movement(operations);
 }

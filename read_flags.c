@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 10:47:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/10/29 12:24:28 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/02 13:44:47 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ static int	check_flags(char *str, int *flags, int *bench)
 		(*bench)++;
 		return (1);
 	}
-	else if (!ft_strncmp(str, "--simple", 9)
-		|| !ft_strncmp(str, "--complex", 10)
-		|| !ft_strncmp(str, "--medium", 9)
-		|| !ft_strncmp(str, "--adaptive", 11))
+	else if (!ft_strncmp(str, "--simple", 9) || !ft_strncmp(str, "--complex",
+			10) || !ft_strncmp(str, "--medium", 9) || !ft_strncmp(str,
+			"--adaptive", 11))
 	{
 		(*flags)++;
 		return (1);
@@ -52,16 +51,23 @@ static int	check_flags(char *str, int *flags, int *bench)
 	else
 		return (0);
 }
-static void init_flags(t_flags *flags)
+
+static void	init_flags(t_flags *flags)
 {
 	flags->num_flags = 0;
 	flags->num_bench = 0;
 	flags->flag = "Adaptive";
 	flags->is_bench = false;
 }
+
+/*
+** Reject empty arguments, unknown flags, or multiple flags of either type.
+** Numeric tokens are validated later by ft_atoi.
+*/
 static int	check_flags_error(char **str, int num_args, t_flags *flags)
 {
 	int	i;
+
 	i = 1;
 	while (i < num_args)
 	{
@@ -79,10 +85,11 @@ static int	check_flags_error(char **str, int num_args, t_flags *flags)
 		i++;
 	}
 	return (1);
-}//atoi will check the characters
+}
+
 int	read_flags(char **str, int num_args, t_flags *flags)
 {
-	int i;
+	int	i;
 
 	init_flags(flags);
 	i = 1;

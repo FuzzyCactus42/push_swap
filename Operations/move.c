@@ -28,30 +28,30 @@ static void	swap_stack(t_stack *stack)
 		stack->bottom = first;
 }
 
-void	sa(t_stack *s)
+void	sa(t_stack *s, int *operations)
 {
 	if (!s || s->size < 2)
 		return ;
 	swap_stack(s);
-	g_operations[OP_SA]++;
+	operations[OP_SA]++;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, int *operations)
 {
 	if (!b || b->size < 2)
 		return ;
 	swap_stack(b);
-	g_operations[OP_SB]++;
+	operations[OP_SB]++;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *s, t_stack *b)
+void	ss(t_stack *s, t_stack *b, int *operations)
 {
 	if (((!s || s->size < 2) && (!b || b->size < 2)))
 		return ;
 	swap_stack(s);
 	swap_stack(b);
-	g_operations[OP_SS]++;
+	operations[OP_SS]++;
 	write(1, "ss\n", 3);
 }

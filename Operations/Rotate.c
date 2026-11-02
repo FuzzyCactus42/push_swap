@@ -36,30 +36,30 @@ static void	rotate(t_stack *stack)
 	}
 }
 
-void	rotate_a(t_stack *a)
+void	rotate_a(t_stack *a, int *operations)
 {
 	if (!a || a->size < 2)
 		return ;
 	rotate(a);
 	write(1, "ra\n", 3);
-	g_operations[OP_RA]++;
+	operations[OP_RA]++;
 }
 
-void	rotate_b(t_stack *b)
+void	rotate_b(t_stack *b, int *operations)
 {
 	if (!b || b->size < 2)
 		return ;
 	rotate(b);
 	write(1, "rb\n", 3);
-	g_operations[OP_RB]++;
+	operations[OP_RB]++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, int *operations)
 {
 	if (((!a || a->size < 2) && (!b || b->size < 2)))
 		return ;
 	rotate(a);
 	rotate(b);
-	g_operations[OP_RR]++;
+	operations[OP_RR]++;
 	write(1, "rr\n", 3);
 }

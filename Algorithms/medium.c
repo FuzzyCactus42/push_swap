@@ -6,7 +6,7 @@
 /*   By: hhailat <hhailat@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 16:58:36 by hhailat           #+#    #+#             */
-/*   Updated: 2026/11/01 17:34:45 by hhailat          ###   ########.fr       */
+/*   Updated: 2026/11/02 13:06:33 by hhailat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_max_position(t_stack *b)
 	return (p);
 }
 
-static void	push2a(t_stack *b, t_stack *a)
+static void	push2a(t_stack *b, t_stack *a, int *operations)
 {
 	int	p;
 
@@ -49,15 +49,15 @@ static void	push2a(t_stack *b, t_stack *a)
 		while (b->top->index != b->size - 1)
 		{
 			if (p <= b->size / 2)
-				rotate_b(b);
+				rotate_b(b, operations);
 			else
-				rrb(b);
+				rrb(b, operations);
 		}
-		push_a(b, a);
+		push_a(b, a, operations);
 	}
 }
 
-void	medium(t_stack *a, t_stack *b)
+void	medium(t_stack *a, t_stack *b, int *operations)
 {
 	int	chunck_size;
 	int	limit;
@@ -72,11 +72,11 @@ void	medium(t_stack *a, t_stack *b)
 		while (b->size < limit && a->top != NULL)
 		{
 			if (a->top->index < limit)
-				push_b(a, b);
+				push_b(a, b, operations);
 			else
-				rra(a);
+				rra(a, operations);
 		}
 		limit += chunck_size;
 	}
-	push2a(b, a);
+	push2a(b, a, operations);
 }

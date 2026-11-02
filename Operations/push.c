@@ -12,62 +12,46 @@
 
 #include "../push_swap.h"
 
-void	push_b(t_stack *a, t_stack *b)
+static void	push_node(t_stack *from, t_stack *to)
 {
 	t_node	*temp;
 
-	if (!a || a->size == 0 || !b)
-		return ;
-	temp = a->top;
-	a->top = temp->next;
-	a->size--;
-	if (a->size == 0)
+	temp = from->top;
+	from->top = temp->next;
+	from->size--;
+	if (from->size == 0)
 	{
-		a->top = NULL;
-		a->bottom = NULL;
+		from->top = NULL;
+		from->bottom = NULL;
 	}
-	if (b->size == 0)
+	if (to->size == 0)
 	{
 		temp->next = NULL;
-		b->top = temp;
-		b->bottom = temp;
+		to->top = temp;
+		to->bottom = temp;
 	}
 	else
 	{
-		temp->next = b->top;
-		b->top = temp;
+		temp->next = to->top;
+		to->top = temp;
 	}
-	b->size++;
-	g_operations[OP_PB]++;
+	to->size++;
+}
+
+void	push_b(t_stack *a, t_stack *b, int *operations)
+{
+	if (!a || a->size == 0 || !b)
+		return ;
+	push_node(a, b);
+	operations[OP_PB]++;
 	write(1, "pb\n", 3);
 }
 
-void	push_a(t_stack *b, t_stack *a)
+void	push_a(t_stack *b, t_stack *a, int *operations)
 {
-	t_node	*temp;
-
 	if (!b || b->size == 0 || !a)
 		return ;
-	temp = b->top;
-	b->top = temp->next;
-	b->size--;
-	if (b->size == 0)
-	{
-		b->top = NULL;
-		b->bottom = NULL;
-	}
-	if (a->size == 0)
-	{
-		temp->next = NULL;
-		a->top = temp;
-		a->bottom = temp;
-	}
-	else
-	{
-		temp->next = a->top;
-		a->top = temp;
-	}
-	a->size++;
-	g_operations[OP_PA]++;
+	push_node(b, a);
+	operations[OP_PA]++;
 	write(1, "pa\n", 3);
 }
