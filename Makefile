@@ -2,7 +2,6 @@ NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -I.
 
 SRCS = push_swap.c \
        read_flags.c \
@@ -33,7 +32,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c push_swap.h
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	$(CC)  $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
